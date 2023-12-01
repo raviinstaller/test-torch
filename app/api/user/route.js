@@ -22,7 +22,7 @@ export async function GET(request) {
     }
   } catch (error) {
     return NextResponse.json(
-      { message: "Something went wrong..." },
+      { message: "Something went wrong...", error },
       { status: 404 }
     );
   }
