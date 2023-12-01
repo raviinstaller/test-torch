@@ -3,7 +3,10 @@ import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { NextResponse } from "next/server";
 
 export async function GET(request) {
-  if (request.cookies.get("loggedIn").value) {
+  if (
+    request.cookies.get("loggedIn") &&
+    request.cookies.get("loggedIn").value
+  ) {
     const userId = request.cookies.get("userId").value;
     try {
       const docSnap = await getDocs(
