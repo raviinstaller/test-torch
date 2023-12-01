@@ -19,5 +19,10 @@ export async function GET(request) {
     } catch (error) {
       return NextResponse.json({ message: error.message }, { status: 404 });
     }
+  } else {
+    return NextResponse.json(
+      { message: "user not logged in" },
+      { status: 400 }
+    );
   }
 }
